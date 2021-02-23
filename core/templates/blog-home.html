@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Blogs {% endblock %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/blog.css' %}">
+
+<div class="blogs">
+   <h1>Our Blogs</h1>
+   <div class="blog-grid">
+
+       <div class="blog-cards">
+            {% for blog_post in blog_posts %}
+           <div class="card">
+               <div class="card-img">
+                   <img src="{{ blog_post.image_url}}">
+               </div>
+               <div class="card-info">
+                   <span id="date">{{ blog_post.date }}</span><br><span id="author">By {{ blog_post.author }}</span>
+                   <h1>{{ blog_post.title }}</h1>
+                   <p>{{ blog_post.post|slice:":200"|safe }}</p>
+                   <a href="{% url 'blog_detail' blog_post.category.slug blog_post.slug %}" id="seeall">Read All</a>
+                </div>
+           </div>
+           {% endfor %}
+
+       </div>
+
+
+       <div class="blog-info">
+        <div class="about-author">
+            <img src="{% static 'img/en.png' %}" alt="Envisioners Logo">
+            <h2>The Envisioners Nepal</h2>
+            <span id="author" style="text-align: left; float: left; padding-left: 0.5rem;">Corporate Author</span><br>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Harum distinctio atque deleniti vero, aliquid sapiente illum aperiam vel, quae tenetur nostrum odit repudiandae. Aperiam fugit earum molestias deserunt optio libero?</p>
+
+        </div>
+
+<div class="categories">
+            <h1 style="margin-top: 0; font-family: 'Nunito', sans-serif; text-align: left; padding: 0;">Categories</h1>
+    {% for category in menu_categories %}
+    <li><a href="{% url 'category_detail' category.slug %}">{{ category.title }}</a></li>
+    {% endfor %}
+
+        </div>
+    </div>
+   </div>
+</div>
+{% endblock %}

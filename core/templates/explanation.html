@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Explanations {% endblock %}
+{% block content %}
+
+<style>
+    body {
+        background-image: url({% static 'background/aurora.jpg' %});
+    }
+
+    h1 {
+        color: #fff;
+        font-size: clamp(1.2rem, 2.5rem, 5vw);
+        font-family: 'Nunito', sans-serif;
+    }
+
+    .toph1 {
+        padding-top: 170px;
+    }
+
+    @media (max-width:600px) {
+        .toph1 {
+            padding-top: 100px;
+        }
+    }
+</style>
+    <h1 class="toph1"> Explanation To our Videos</h1>
+    <div class="row">
+        <div class="col">
+            <div class="tabs">
+{% for explanation in explanations %}
+
+                <div class="tab">
+                    <input type="checkbox" id="{{ explanation.title | safe }}">
+                    <label class="tab-label" for="{{ explanation.title | safe }}">{{ explanation.title }}
+                    </label>
+                    <div class="tab-content" style="color: #000">
+                        {{ explanation.content| safe }}
+                    </div>
+
+                </div>
+                {% endfor %}
+
+
+        </div>
+    </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Videos {% endblock %}
+{% block content %}
+    <div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v9.0" nonce="aWgIIQjR"></script>
+
+
+<div class="social-feeds">
+    <h1>Our Latest Video</h1>
+    {% for latest_video in latest_videos %}
+    <div class="latest-video">
+    <iframe src="https://www.youtube-nocookie.com/embed/{{ latest_video.video_code }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width: 100%;"></iframe>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="more-videos">
+    <h1>Our all Videos</h1>
+    <div class="video-grid">
+        {% for video in videos %}
+        <div class="card">
+            <iframe src="https://www.youtube.com/embed/{{ video.video_code }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="info">
+                <h1>{{ video.video_title|slice:":30"|safe  }}</h1>
+                <div class="fb-share-button" data-href="{{ video.youtube_link }}" data-layout="button" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fyoutu.be%2F07mkUDlxn08&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+                <div class="g-ytsubscribe" data-channelid="UCx1kyWF_pbFTcBNz-yp6rBg" data-layout="default" data-count="hidden"></div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<script src="https://apis.google.com/js/platform.js"></script>
+
+{% endblock %}

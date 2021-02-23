@@ -1,0 +1,156 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="icon" href="{% static 'img/en.png' %}">
+
+    <link rel="stylesheet" href="{% static 'swiper/swiper-bundle.css' %}">
+    <link rel="stylesheet" href="{% static 'swiper/swiper-bundle.min.css' %}">
+    <title>{% block title %}{% endblock %} | TEN</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <nav id="navbar">
+        <div class="logo" id="env-logo"><a href="{% url 'home' %}"><img src="{% static 'img/en.png' %}"> </a> </div>
+
+        <ul>
+            <li> <a href="{% url 'home' %}">Home</a> </li>
+            <li> <a href="{% url 'blog' %}">Blogs</a> </li>
+            <li> <a href="{% url 'photos' %}">Photos</a> </li>
+            <li><a href="{% url 'video' %}">Videos</a></li>
+            <li> <a href="{% url 'explanation' %}">Explanation</a></li>
+            <li> <a href="{% url 'member' %}">Members</a></li>
+
+            <li> <a href="{% url 'about-us' %}">About Us</a></li>
+
+
+        </ul>
+        <div class="menu-btn" onclick="showOverlay()" id="open">
+            <span class="burger1"></span>
+        </div>
+    </nav>
+
+    <div class="menu-overlay" id="menu-overlay">
+        <span id="close" style="font-size: 2rem;cursor: pointer;" onclick="closeOverlay()">&#10006</span>
+        <ul>
+            <li> <a href="{% url 'home' %}">Home</a> </li>
+            <li> <a href="{% url 'blog' %}">Blogs</a> </li>
+            <li> <a href="{% url 'photos' %}">Photos</a> </li>
+            <li><a href="{% url 'video' %}">Videos</a></li>
+            <li> <a href="{% url 'explanation' %}">Explanation</a></li>
+            <li> <a href="{% url 'member' %}">Members</a></li>
+
+            <li> <a href="{% url 'about-us' %}">About Us</a></li>
+
+
+        </ul>
+    </div>
+    {% block content %}
+    {% endblock %}
+<footer>
+    <div class="not-map">
+    <div class="quick-links">
+        <h1>Explore</h1>
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'blog' %}">Blogs</a></li>
+        <li><a href="{% url 'photos' %}">Photos</a></li>
+        <li><a href="{% url 'about-us' %}">About</a></li>
+    </div>
+    <div class="about">
+        <h1>About Envisioners</h1>
+        <p> Providing certainty to the future is quite impossible but creating a better and promising future is all upon how we use our time and skills in the present. So, we are the group of individuals having the vision to improvise the future with our skills. Join us and contribute for a better future.
+
+        </p>
+    </div>
+    <div class="social-links">
+        <h1>Stay Connected</h1>
+        <li> <a href="https://www.facebook.com/theenvisionersnepal" target="_blank"><img src="{% static 'img/vectors/icons/004-facebook.svg' %}">  Facebook</a></li>
+        <li><a href="https://www.instagram.com/envisionnepal/" target="_blank"><img src="{% static 'img/vectors/icons/003-instagram.svg' %}">  Instagram</a></li>
+        <li><a href="https://twitter.com/envisionnepal10" target="_blank"><img src="{% static 'img/vectors/icons/001-twitter.svg' %}">  Twitter</a></li>
+        <li><a href="https://www.youtube.com/channel/UCx1kyWF_pbFTcBNz-yp6rBg" target="_blank"><img src="{% static 'img/vectors/icons/004-youtube.svg' %}">  Youtube</a></li>
+    </div>
+    <div class="address">
+        <h1>Contact Us</h1>
+        <li> <img src="{% static 'img/vectors/icons/001-placeholder.svg' %}">  Tokha-3, Kathmandu, Nepal</li>
+        <li><a href="mailto:envisioners1010@gmail.com"> <img src="{% static 'img/vectors/icons/002-gmail.svg' %}">  envisioners1010@gmail.com</a></li>
+        <li><a href="tel:+977-9808399325"><img src="{% static 'img/vectors/icons/001-phone-call.svg' %}">  +977-9808399325</a></li>
+    </div>
+</div>
+<div class="map">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d882.5794463992103!2d85.32758123727085!3d27.76918083872847!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb1ec413c4f615%3A0xa10c89d5bd7cdfe7!2sEkulag%20Tool!5e0!3m2!1sen!2snp!4v1612970371009!5m2!1sen!2snp" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+</div>
+</footer>
+   <script type="text/javascript">
+/* curator-feed-default-feed-layout */
+(function(){
+var i, e, d = document, s = "script";i = d.createElement("script");i.async = 1;
+i.src = "https://cdn.curator.io/published/37af17cd-e593-4390-b4d5-5d04c9f8ec59.js";
+e = d.getElementsByTagName(s)[0];e.parentNode.insertBefore(i, e);
+})();
+</script>
+
+<script>
+var prevScrollpos = window.pageYOffset;
+window.onscroll = function() {
+    var x = window.matchMedia("(min-width: 1000px)");
+    var y = window.matchMedia("(max-width: 1000px)");
+var currentScrollPos = window.pageYOffset;
+  if (prevScrollpos > currentScrollPos &&  x.matches) {
+    document.getElementById("env-logo").style.height = "100px";
+    document.getElementById("navbar").style.background = "#005dff";
+
+  }
+  if(prevScrollpos < currentScrollPos && x.matches){
+    document.getElementById("env-logo").style.height = "0";
+    document.getElementById("navbar").style.background = "#005dff";
+  }
+     else {
+
+    document.getElementById("navbar").style.background = "rgba(0, 94, 255, 0.08)";
+  }
+  if(prevScrollpos > currentScrollPos && y.matches){
+      document.getElementById("navbar").style.background = "rgba(0, 94, 255, 0.308)";
+  }
+  if(prevScrollpos < currentScrollPos && y.matches){
+      document.getElementById("navbar").style.background = "#005dff";
+  }
+  prevScrollpos = currentScrollPos;
+}
+    </script>
+   <script type="text/javascript" src="{% static 'js/index.js' %}"></script>
+   <script type="text/javascript" src="{% static 'js/smoothscroll.js' %}"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/ScrollTrigger.min.js"></script>
+
+   <script type="text/javascript" src="{% static 'js/animation.js' %}"></script>
+   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+   <script>
+    AOS.init();
+  </script>
+
+  <script src="{% static 'swiper/swiper-bundle.js' %}"></script>
+  <script src="{% static 'swiper/swiper-bundle.min.js' %}"></script>
+  <script>
+      var swiper = new Swiper('.swiper-container', {
+          loop: true,
+          effect: 'fade',
+          speed: 1300,
+
+          pagination: {
+              el: '.swiper-pagination',
+              dynamicBullets: true,
+          },
+          autoplay:{
+              delay: 2000,
+          },
+          navigation: {
+              nextEl: '.swiper-button-next',
+              prevEl: '.swiper-button-prev',
+          },
+      });
+  </script>
+</body>
+</html>

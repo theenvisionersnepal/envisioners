@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Members {% endblock %}
+{% block content %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/members.css' %}">
+<style>
+    #member1{
+        margin-top: 200px;
+    }
+
+    .member-btn{
+        z-index: 10;
+        top: 40%;
+        right: 0;
+        position: fixed;
+
+    }
+    .member-btn a{
+        background-color: #005dff;
+        padding: 1rem 1.5rem 1rem 1rem;
+        color: #fff;
+        font-family: 'Montserrat', sans-serif;
+        clip-path: polygon(0% 0%, 90% 0%, 100% 50%, 90% 100%, 0% 100%);
+
+    }
+    @media(max-width:600px){
+        #member1{margin-top: 100px;}
+        .member-btn{
+            position: relative;
+            margin: 20px;
+            margin-left: 0;
+        }
+        .member-btn a{
+            clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 100% 100%, 0% 100%);
+
+        }
+    }
+</style>
+
+<h1 id="member1" style=" background: rgba( 29, 132, 255, 0.25 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 8.0px );
+-webkit-backdrop-filter: blur( 8.0px );
+padding: 1rem;
+border: 1px solid rgba( 255, 255, 255, 0.18 );">Our Co-Founding Members</h1>
+
+<div class="member-cards">
+    {% for member in members %}
+{% if member.Co_founder %}
+    <div class="card" data-aos="fade-up" data-aos-duration="1000">
+        <div class="card-img">
+            <img src="{{ member.Image_url }}">
+        </div>
+        <div class="info">
+            <h1 id="name">{{ member.Name }}</h1><br>
+            <span id="skills">Skills:<br> {{ member.Skills}}</span><br>
+            <a href="{{ member.Facebook_link }}" ><img src="{% static 'img/vectors/icons/004-facebook.svg' %}" id="icons"></a>
+            <a href="{{ member.Instagram_link }}" ><img src="{% static 'img/vectors/icons/003-instagram.svg' %}" id="icons"></a>
+            <a href="tel:{{ member.Phone|safe }}" ><img src="{% static 'img/vectors/icons/001-phone-call.svg' %}" id="icons"></a>
+            <a href="mailto:{{ member.Email }}" ><img src="{% static 'img/vectors/icons/002-gmail.svg' %}" id="icons"></a>
+        </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+
+</div>
+<h1 style="background: rgba( 29, 132, 255, 0.25 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 8.0px );
+-webkit-backdrop-filter: blur( 8.0px );
+padding: 1rem;
+border: 1px solid rgba( 255, 255, 255, 0.18 );">Our Other Members</h1>
+
+<div class="member-cards">
+    {% for member in members %}
+{% if member.Co_founder == False %}
+    <div class="card" data-aos="fade-up" data-aos-duration="1000">
+        <div class="card-img">
+            <img src="{{ member.Image_url }}">
+        </div>
+        <div class="info">
+            <h1 id="name">{{ member.Name }}</h1><br>
+            <span id="skills">Skills:<br> {{ member.Skills}}</span><br>
+            <a href="{{ member.Facebook_link }}" ><img src="{% static 'img/vectors/icons/004-facebook.svg' %}" id="icons"></a>
+            <a href="{{ member.Instagram_link }}" ><img src="{% static 'img/vectors/icons/003-instagram.svg' %}" id="icons"></a>
+            <a href="tel:{{ member.Phone|safe }}" ><img src="{% static 'img/vectors/icons/001-phone-call.svg' %}" id="icons"></a>
+            <a href="mailto:{{ member.Email }}" ><img src="{% static 'img/vectors/icons/002-gmail.svg' %}" id="icons"></a>
+        </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+
+</div>
+    <div class="member-btn"><a href="https://forms.gle/Bm8u2kauXpd833x37" target="_blank">Want to Become our Member?</a></div>
+{% endblock %}

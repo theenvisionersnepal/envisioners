@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} {{ blog_post.title }} | {{ blog_post.category }} | Blog{% endblock %}
+{% block content %}
+<style>
+    input{
+    position:relative;
+    opacity:1;
+    z-index:1;
+    }
+</style>
+<link rel="stylesheet" type="text/css" href="{% static 'css/blog.css' %}">
+    <div class="blogs">
+        <h1 style="text-align: left; font-family: 'Nunito', sans-serif; letter-spacing: 0;">{{ blog_post.title }}
+        </h1>
+        <div class="blog-grid" style="grid-template-columns: repeat(3, 1fr);">
+
+            <div class="blog-detail" style="background-color: #fff;">
+                <span id="author" style="text-decoration: none;">
+
+                </span>
+                <div class="blog-image">
+                    <img src="{{ blog_post.image_url }}">
+                    {% if blog_post.Image_Credit %}
+                    <span id="author" style=" color: #000;">Photo Credit: {{ blog_post.Image_Credit }}</span>
+                    {% endif %}
+                </div>
+                <div class="blog-content">
+                    <span id="date">{{ blog_post.date }}</span><span id="author" style="float: right;">By {{ blog_post.author }}</span>
+                    <p>
+
+                        {{ blog_post.post }}
+                    </p>
+                </div>
+            </div>
+            <div class="comments-grid">
+                <h1 style="text-transform:uppercase;">Comments <span id="subtitle" style="text-decoration:none; font-size:15px;"> ({{ comments.count }})</span></h1>
+                {% for comment in comments %}
+                   {% if comment.active %}
+
+                <div class="comment1">
+                    <div class="actual-comment">
+                        <h3 id="comment-author">{{ comment.name }}</h3>
+                        <p id="comment-text">{{ comment.comment }}</span>
+                    </div>
+                </div>
+                    {% else %}
+                        {% for comment in comments %}
+                            {% if not comment.active %}
+                <span id="author" style="margin-left:1rem; padding-left:1rem;"> Some Comments are hidden </span>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+
+
+                {% endfor %}
+                <h1>Add your comment</h1>
+                <form method="post">
+                    {% csrf_token %}
+
+                    <div class="add-comment">
+                        <div class="name"> Name:<br>
+                            <input type="text" name="name" required> </div>
+                        <div class="email">Email:<br>
+                            <input type="email" name="email" required></div>
+                        <div class="comment">Comment:<br>
+                            <textarea name="comment" required></textarea> </div>
+                    </div>
+                    <button type="submit" value="submit">Comment</button>
+
+                </form>
+            </div>
+       <div class="blog-info">
+        <div class="about-author">
+            <img src="{% static 'img/en.png' %}" alt="Envisioners Logo">
+            <h2>The Envisioners Nepal</h2>
+            <span id="author" style="text-align: left; float: left; padding-left: 0.5rem;">Corporate Author</span><br>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Harum distinctio atque deleniti vero, aliquid sapiente illum aperiam vel, quae tenetur nostrum odit repudiandae. Aperiam fugit earum molestias deserunt optio libero?</p>
+
+        </div>
+
+<div class="categories">
+            <h1 style="margin-top: 0; font-family: 'Nunito', sans-serif; text-align: left; padding: 0;">Categories</h1>
+    {% for category in menu_categories %}
+    <li><a href="{% url 'category_detail' category.slug %}">{{ category.title }}</a></li>
+    {% endfor %}
+
+        </div>
+    </div>
+        </div>
+    </div>
+<script>
+if ( window.history.replaceState ) {
+  window.history.replaceState( null, null, window.location.href );
+}
+</script>
+{% endblock %}

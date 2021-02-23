@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block title %} Home {% endblock %}
+{% block content %}
+
+    <div class="introduction">
+        <div class="intro-info">
+            <h1 id="mobileh1">Welcome To Envisioner World</h1>
+
+            <p>
+                We are a small group of a limited number of founding members having a vision to revolutionize Nepal mainly by the act of providing the authentic knowledge of the future heading world, the latest discoveries going on in the world, the scientific reasons
+                behind some of the most inquired but unsolved mysteries, facts regarding science and technology, and the technological advancements that are being in Nepal.
+
+                <br><br><a href="#knowmore">Know More</a>
+            </p>
+            <h1 id="tab-h1">Welcome to<br> Envisioner World</h1>
+
+        </div>
+        <p id="knowmore">
+            We believe that in order to gain something, knowledge is the most essential thing. Although we are now too small and fund less to launch the real-life projects, we are active to collect the information and knowledge regarding various technological aspects
+            which will help us to launch the real life projects in the days to come. We want to share the knowledge and information that we gain to all the Nepalese in the simplest way possible so that each and every one can understand it.
+        </p>
+    </div>
+    <div class="introduction2" id="knowmore">
+        <p class="quote" id="quote">
+            <q> उदेश्य के लिनु, उडी छुनु चन्द्र एक </q>
+        </p>
+        <p>
+
+            Although our steps are small but our aim to revolutionize Nepal through authentic knowledge and upcoming projects is bold enough so that our efforts are never tiring. We are continuously searching the best way possible to improve our efforts for the better
+            results. Continuous learning and improving is the key principle of our group.
+            <br>Our effort of limited number of people are never enough to revolutionize the whole Nepal. We need a lot of individuals having their own unique ideas regarding further plans and projects. So we are actively searching for the candidates
+            to join with us in our aim by becoming the member of our Envisioners Army.
+            <br>
+        </p>
+        <p class="quote" id="quote">
+            <q> जननी जन्मभूमिश्च स्वर्गादपि गरीयसी </q><br>
+            <q>Mother and motherland are superior even to Heaven.</q>
+            <br>
+
+        </p>
+        <p>For now, we are active in making youtube videos regarding the topic of scientific mysteries, technological advancements in the world and the pace of Nepal in these advancements. Soon we are planning to launch some other real-life projects. So
+            be connected us by becoming a member of our Envisioners Army.</p>
+
+    </div>
+    <div class="blogs"><a href="blog-home.html" id="seeall">See all</a>
+        <h1>Our Recent Blogs</h1>
+        <div class="blog-cards">
+                    {% for blog_post in blog_posts %}
+
+            <div class="card" data-aos="fade-up">
+                <div class="image">
+                    <img src="{{ blog_post.image_url }}">
+                </div>
+                <div class="info">
+                    <h1>{{ blog_post.title }}</h1>
+                    <p>{{ blog_post.post|slice:":400"| safe }}..</p>
+                    <a href="{% url 'blog_detail' blog_post.category.slug blog_post.slug %}">Read More</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="social-feeds" style="padding: 1rem;padding-top: 0; margin: 0;">
+        <a href="#" id="seeall">See all</a>
+        <h1>Our Social Feeds</h1>
+        <div id="curator-feed-default-feed-layout"><a href="https://curator.io" target="_blank" class="crt-logo crt-tag">Powered by Curator.io</a></div>
+    </div>
+{% endblock %}

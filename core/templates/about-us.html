@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} About Us {% endblock %}
+{% block content %}
+<style>
+    body {
+        background-color: #005dff;
+    }
+    h1{
+        font-size: clamp(1.2rem, 2.5rem, 5vw);
+        font-family: 'Josefin Sans', sans-serif;
+        color: #fff;
+        text-align: left;
+    }
+    #toph1 {
+        text-align: center;
+        padding-top: 170px;
+        font-family: 'Nunito', sans-serif;
+        color: #fff;
+    }
+    @media(max-width:600px){
+        #toph1{
+            padding-top: 100px;
+        }
+    }
+</style>
+
+    <h1 id="toph1">Founders</h1>
+    <div class="container">
+        <div class="card" data-aos="fade-up" data-aos-duration="1000">
+            <div class="imgBx">
+                <img src="https://i.ibb.co/8cGZVy0/nishant.jpg">
+            </div>
+            <div class="content">
+                <h2>Nishant Shrestha</h2>
+                <p>Bsc. Hons Computing</p>
+            </div>
+        </div>
+        <div class="card" data-aos="fade-up" data-aos-duration="1000">
+            <div class="imgBx">
+                <img src="https://i.ibb.co/tzVD384/152741201-4054594021231496-7672316338627403327-n.jpg">
+            </div>
+            <div class="content">
+                <h2>Sabin Acharya</h2>
+                <p>B.E Electronics</p>
+            </div>
+        </div>
+    </div>
+    <div class="message-container">
+        <div class="blur">
+<div class="message">
+    <h1>Message From Founders
+    </h1>
+    <p>
+Initially, we founded the concept of The Envisioners Nepal with the view to create an informative and scientific content in Nepali Youtube. Our main motto was to create a simple but authentic and scientific content so that even a person having no knowledge about the topic could understand it. We have always pushed forward the knowledge regarding the technology and scientific mysteries like as time travel and many more.
+But now we are realizing that if we collect some skilled manpower from different field and use their knowledge in some projects, we can do much for our country. We have decided to form our group as a club of the youths so that they can contribute from their level with the knowledge and skills they have to create a better future.
+As like our name, ‘Envisioners’ we are in search of the individuals having a vision to improve the upcoming future. We youths are the pillars of the country and we have to support our country as much as possible. So anyone who want to be a part of our Envisioners Army Nepal can fill up the membership form and contribute from their level.
+Thank You!
+    </p>
+</div>
+</div>
+</div>
+
+{% endblock %}
