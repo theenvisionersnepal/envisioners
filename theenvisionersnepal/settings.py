@@ -25,7 +25,10 @@ SECRET_KEY = '68oq-h_9woh5!o7qr=^hithr@!@181d^sfad_q^ddlncus5uui'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'https://theenvisionersnepal.herokuapp.com/',
+    '127.0.0.1',
+]
 
 
 # Application definition
