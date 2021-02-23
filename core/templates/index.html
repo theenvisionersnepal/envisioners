@@ -42,7 +42,7 @@
             be connected us by becoming a member of our Envisioners Army.</p>
 
     </div>
-    <div class="blogs"><a href="blog-home.html" id="seeall">See all</a>
+    <div class="blogs"><a href="{% url 'blog' %}" id="seeall">See all</a>
         <h1>Our Recent Blogs</h1>
         <div class="blog-cards">
                     {% for blog_post in blog_posts %}
@@ -61,7 +61,7 @@
         </div>
     </div>
     <div class="social-feeds" style="padding: 1rem;padding-top: 0; margin: 0;">
-        <a href="#" id="seeall">See all</a>
+        <a href="{% url 'photos' %}" id="seeall">See all</a>
         <h1>Our Social Feeds</h1>
         <div id="curator-feed-default-feed-layout"><a href="https://curator.io" target="_blank" class="crt-logo crt-tag">Powered by Curator.io</a></div>
     </div>
