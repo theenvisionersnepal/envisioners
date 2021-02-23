@@ -4,35 +4,42 @@
 {% block content %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/members.css' %}">
 <style>
-    #member1{
+    #member1 {
         margin-top: 200px;
     }
 
-    .member-btn{
+    .member-btn {
         z-index: 10;
         top: 40%;
         right: 0;
         position: fixed;
-
     }
-    .member-btn a{
+
+    .member-btn a {
         background-color: #005dff;
         padding: 1rem 1.5rem 1rem 1rem;
         color: #fff;
         font-family: 'Montserrat', sans-serif;
         clip-path: polygon(0% 0%, 90% 0%, 100% 50%, 90% 100%, 0% 100%);
-
     }
-    @media(max-width:600px){
-        #member1{margin-top: 100px;}
-        .member-btn{
+
+    @media(max-width:600px) {
+        #member1 {
+            margin-top: 100px;
+        }
+        .member-btn {
             position: relative;
             margin: 20px;
             margin-left: 0;
+            padding: 0.5rem;
+            background-color: #005dff;
+            margin-right: 0;
         }
-        .member-btn a{
-            clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 100% 100%, 0% 100%);
-
+        .member-btn a {
+            all: initial;
+            line-height: 1.5rem;
+            clip-path: none;
+            font-family: 'Montserrat', sans-serif;
         }
     }
 </style>
