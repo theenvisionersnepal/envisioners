@@ -11,7 +11,7 @@
 </style>
 <link rel="stylesheet" type="text/css" href="{% static 'css/blog.css' %}">
     <div class="blogs">
-        <h1 style="text-align: left; font-family: 'Nunito', sans-serif; letter-spacing: 0;">{{ blog_post.title }}
+        <h1 style="text-align: left; font-family: 'Nunito', sans-serif; letter-spacing: 0;">{{ blog_post.title| safe }}
         </h1>
         <div class="blog-grid" style="grid-template-columns: repeat(3, 1fr);">
 
@@ -29,7 +29,7 @@
                     <span id="date">{{ blog_post.date }}</span><span id="author" style="float: right;">By {{ blog_post.author }}</span>
                     <p>
 
-                        {{ blog_post.post }}
+                        {{ blog_post.post|safe }}
                     </p>
                 </div>
             </div>
