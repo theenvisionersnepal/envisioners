@@ -1,7 +1,15 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %} {{ blog_post.title }} | {{ blog_post.category }} | Blog{% endblock %}
+{% block title %} {{ blog_post.title }} | Blog{% endblock %}
 {% block content %}
+<head>
+    <meta name="title" content="{{ blog_post.title }}">
+    <meta name="description" content="{{ blog_post.post|slice:":200"|safe }}">
+    <meta name="author" content="{{ blog_post.author }}">
+    <meta name="date" content="{{ blog_post.date }}">
+    <meta name="keyword" content="{{ blog_post.title }}">
+    <meta name="category" content="{{ blog_post.category }}">
+</head>
 <style>
     input{
     position:relative;
@@ -11,18 +19,18 @@
 </style>
 <link rel="stylesheet" type="text/css" href="{% static 'css/blog.css' %}">
     <div class="blogs">
-        <h1 style="text-align: left; font-family: 'Nunito', sans-serif; letter-spacing: 0;">{{ blog_post.title| safe }}
-        </h1>
-        <div class="blog-grid" style="grid-template-columns: repeat(3, 1fr);">
 
-            <div class="blog-detail" style="background-color: #fff;">
+        <div class="blog-grid" style="grid-template-columns: repeat(3, 1fr); padding-top:170px">
 
-                <div class="blog-image">
-                    <img src="{{ blog_post.image_url }}">
+            <article class="blog-detail" style="background-color: #fff;">
+<h2 style="text-align: left; font-family: 'Nunito', sans-serif; letter-spacing: 0;">{{ blog_post.title| safe }}
+        </h2>
+                <a href="{{ blog_post.image_url }}" class="blog-image">
+                    <img src="{{ blog_post.image_url }}" alt="{{ blog_post.title }} Image">
                     {% if blog_post.Image_Credit %}
                     <span id="author" style=" color: #000;">Photo Credit: {{ blog_post.Image_Credit }}</span>
                     {% endif %}
-                </div>
+                </a>
                 <div class="blog-content">
                     <span id="date">{{ blog_post.date }}</span><span id="author" style="float: right;">By {{ blog_post.author }}</span>
                     <p>
@@ -30,7 +38,7 @@
                         {{ blog_post.post|safe }}
                     </p>
                 </div>
-            </div>
+            </article>
             <div class="comments-grid">
                 <h1 style="text-transform:uppercase;">Comments <span id="subtitle" style="text-decoration:none; font-size:15px;"> ({{ comments.count }})</span></h1>
                 {% for comment in comments %}

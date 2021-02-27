@@ -20,6 +20,7 @@ class BlogPost(models.Model):
     author = models.CharField(max_length=256)
     image_url = models.CharField(max_length=2048)
     post = models.TextField()
+    Keywords = models.TextField(null=True, blank=True)
     Image_Credit = models.CharField(max_length=256, blank=True, null=True)
 
     class Meta:
