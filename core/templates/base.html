@@ -1,11 +1,9 @@
 {% load static %}
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="icon" href="{% static 'img/en.png' %}">
 
     <link rel="stylesheet" href="{% static 'swiper/swiper-bundle.css' %}">
     <link rel="stylesheet" href="{% static 'swiper/swiper-bundle.min.css' %}">
@@ -17,10 +15,10 @@
 {% block style %}
 {% endblock %}
 <body>
-    <nav id="navbar">
-        <div class="logo" id="env-logo"><a href="{% url 'home' %}"><img src="{% static 'img/en.png' %}"> </a> </div>
-
+    <nav id="navbar" class="navbar">
+<div class="logo" id="env-logo"><img src="{% static 'img/en.png' %}" alt="website-logo"></div>
         <ul>
+
             <li> <a href="{% url 'home' %}">Home</a> </li>
             <li> <a href="{% url 'blog' %}">Blogs</a> </li>
             <li> <a href="{% url 'photos' %}">Photos</a> </li>
