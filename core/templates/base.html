@@ -16,7 +16,8 @@
 {% block style %}
 {% endblock %}
 <body>
-    <nav id="navbar" style="height:70px;">
+    <nav id="navbar">
+        <div class="logo" id="env-logo"><img src="{% static 'img/en.png' %}" alt="website-logo"></div>
 
         <ul>
             <li> <a href="{% url 'home' %}">Home</a> </li>
