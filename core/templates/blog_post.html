@@ -7,7 +7,7 @@
     <meta name="description" content="{{ blog_post.post|slice:":200"|safe }}">
     <meta name="author" content="{{ blog_post.author }}">
     <meta name="date" content="{{ blog_post.date }}">
-    <meta name="keyword" content="{{ blog_post.title }}">
+    <meta name="keyword" content="{{ blog_post.keywords }}">
     <meta name="category" content="{{ blog_post.category }}">
 <link rel="stylesheet" type="text/css" href="{% static 'css/blog.css' %}">
     <link rel="icon" href="{{ blog_post.image_url }}">
