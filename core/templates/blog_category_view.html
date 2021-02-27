@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %} {{ category.title }} | Blogs{% endblock %}
-
-{% block content %}
+{% block head %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/blog.css' %}">
+{% endblock %}
+{% block content %}
 <div class="blogs">
    <h1>Blogs By Category '{{ category.title }}'</h1>
    <div class="blog-grid">
