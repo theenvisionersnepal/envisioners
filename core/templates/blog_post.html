@@ -2,6 +2,8 @@
 {% load static %}
 {% block title %} {{ blog_post.title }} | Blog{% endblock %}
 {% block head %}
+    <link rel="icon" href="{{ blog_post.image_url }}">
+
     <meta name="title" content="{{ blog_post.title }}">
     <meta name="description" content="{{ blog_post.post|slice:":200"|safe }}">
     <meta name="author" content="{{ blog_post.author }}">
