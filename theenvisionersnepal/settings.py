@@ -48,7 +48,6 @@ INSTALLED_APPS = [
     'member.apps.MemberConfig',
     'explanation.apps.ExplanationConfig',
     'ckeditor',
-    'whitenoise',
 ]
 
 MIDDLEWARE = [
