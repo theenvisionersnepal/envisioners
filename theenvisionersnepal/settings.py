@@ -94,14 +94,13 @@ WSGI_APPLICATION = 'theenvisionersnepal.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd4272mq7dvthoq',
-        'USER': 'qcyxdrevhxoygw',
-        'PASSWORD': '601fbd704fc827de8841d98dff26f7951d581937c22cf2e601b0924d898a8f7d',
-        'HOST': 'ec2-3-222-127-167.compute-1.amazonaws.com',
+        'NAME': 'd7n78oui75berg',
+        'USER': 'pvsnqgjygvzpvt',
+        'PASSWORD': '011bed2eff46fb4b90a577edb8d2bf5be42d094243de7fc7bf6af4401b0eb719',
+        'HOST': 'ec2-63-34-97-163.eu-west-1.compute.amazonaws.com',
         'PORT': '5432',
     }
 }
-
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
