@@ -20,13 +20,19 @@
     opacity:1;
     z-index:1;
     }
+    .blog-grid{
+    padding-top:170px;
+    }
+    @media (max-width:600px){
+    padding-top:100px;
+    }
 </style>
 {% endblock %}
 {% block content %}
 
     <div class="blogs">
 
-        <div class="blog-grid" style="grid-template-columns: repeat(3, 1fr); padding-top:170px">
+        <div class="blog-grid" style="grid-template-columns: repeat(3, 1fr);">
 
             <article class="blog-detail" style="background-color: #fff;">
 <h2 style="text-align: left; font-family: 'Nunito', sans-serif; letter-spacing: 0;">{{ blog_post.title| safe }}
