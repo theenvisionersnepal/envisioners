@@ -34,5 +34,5 @@ urlpatterns = [
     path('explanation/', explanation_view, name='explanation'),
     path('<slug:slug>/', category_detail, name='category_detail'),
 
-    path('<slug:category_slug>/<slug:slug>.html', blog_detail, name='blog_detail'),
+    path('<slug:category_slug>/<slug:slug>', blog_detail, name='blog_detail'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
