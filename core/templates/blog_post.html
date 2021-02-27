@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %} {{ blog_post.title }} | Blog{% endblock %}
+{% block title %} {{ blog_post.title }} {% endblock %}
 {% block head %}
 
     <meta name="title" content="{{ blog_post.title }}">
@@ -34,12 +34,13 @@
 
         <div class="blog-grid" style="grid-template-columns: repeat(3, 1fr);">
 
-            <article class="blog-detail" style="background-color: #fff;">
+            <article class="blog-detail post-summary" style="background-color: #fff;">
 <h2 style="text-align: left; font-family: 'Nunito', sans-serif; letter-spacing: 0;">{{ blog_post.title| safe }}
         </h2>
                 <a href="{{ blog_post.image_url }}" class="blog-image">
-                    <img class="image thumbnail-image blog image" src="{{ blog_post.image_url }}" alt="{{ blog_post.title }} Image">
-                    {% if blog_post.Image_Credit %}
+<img class="lazy-loaded" src="{{ blog_post.image_url }}" data-lazy-type="image" data-src="{{ blog_post.image_url }}" alt="{{ blog_post.title }}">                    {% if blog_post.Image_Credit %}
+<noscript><img src="{{ blog_post.image_url }}" alt=""></noscript>
+                    {% if Image_Credit %}
                     <span id="author" style=" color: #000;">Photo Credit: {{ blog_post.Image_Credit }}</span>
                     {% endif %}
                 </a>
