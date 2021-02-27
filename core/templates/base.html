@@ -10,8 +10,12 @@
     <link rel="stylesheet" href="{% static 'swiper/swiper-bundle.css' %}">
     <link rel="stylesheet" href="{% static 'swiper/swiper-bundle.min.css' %}">
     <title>{% block title %}{% endblock %} | TEN</title>
+        {% block head %} {% endblock %}
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+{% block style %}
+{% endblock %}
 <body>
     <nav id="navbar">
         <div class="logo" id="env-logo"><a href="{% url 'home' %}"><img src="{% static 'img/en.png' %}"> </a> </div>
