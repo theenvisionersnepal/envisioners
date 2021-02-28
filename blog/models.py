@@ -1,4 +1,5 @@
 from django.db import models
+from tinymce import models as Tinymcemodels
 
 
 class Category(models.Model):
@@ -19,7 +20,7 @@ class BlogPost(models.Model):
     date = models.DateTimeField()
     author = models.CharField(max_length=256)
     image_url = models.CharField(max_length=2048)
-    post = models.TextField()
+    post = Tinymcemodels.HTMLField(blank=True, null=True)
     Keywords = models.TextField(null=True, blank=True)
     Image_Credit = models.CharField(max_length=256, blank=True, null=True)
 
