@@ -11,7 +11,9 @@
     <meta name="category" content="{{ blog_post.category }}">
 <link rel="stylesheet" type="text/css" href="{% static 'css/blog.css' %}">
     <link rel="icon" href="{{ blog_post.image_url }}">
-
+    <meta property="og:title" content="{{ blog_post.title }}">
+    <meta property="og:image" content="{{ blog_post.image_url }}">
+<meta property="og:description" content="{{ blog_post.post }}">
 {% endblock %}
 {% block style %}
 <style>
